@@ -1,2 +1,17 @@
 <h1>Welcome to Bike Berlin</h1>
-<h2>Your source for used bikes in Berlin</h2>
+<h4>Your source for used bikes in Berlin</h4>
+
+<%= image_tag("index.jpg", class: "img-responsive") %>
+
+<% @images = Dir.glob("app/assets/images/products/*.jpg") %>
+
+<h2>Most popular products</h2>
+<div class="row">
+<% @images.each do |image| %>
+	<div class="col-xs-3 col-md-3">
+		<a href="#" class="thumbnail">
+   <%= image_tag "products/#{image.split('/').last}" %>
+		</a>
+	</div>
+ <% end %>
+</div>

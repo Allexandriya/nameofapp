@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Nameofapp</title>
+  <title>My ruby&rails site</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-  <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Contact</li>
-  </ul>
-</nav>
+  <div class="page-container">
+    <!-- top navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+     <div class="container">
+      <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="#">Anastasiia's Bikes</a>
+      </div>
+      </div>
+    </div>
 
-<%= yield %>
+<div class="container">
+  <div class="row row-offcanvas row-offcanvas-left">
 
-<footer>
-  &copy; 2015 Anastasiia Pidvalna
-</footer>
+    <!-- sidebar -->
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+      <ul class="nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>            
+      </ul>
+    </div>
+    
+    <!-- main area -->
+    <div class="col-xs-12 col-sm-9">
+        <%= yield %>
+    </div><!-- /.col-xs-12 main -->
+  </div><!--/.row-->
+</div><!--/.container-->
+  <div class="footer-push"></div>
+</div><!--/.page-container-->
 
+<div class="footer">
+  <div class="container">
+    &copy; Anastasiia. All rights reserver. 2015-2016
+  </div>
+</div>
+
+<!-- script for sidebar -->
+<script type="text/javascript">
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+</script>
 </body>
 </html>
