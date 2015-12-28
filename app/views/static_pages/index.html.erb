@@ -1,7 +1,9 @@
 <h1>Welcome to Bike Berlin</h1>
 <h4>Your source for used bikes in Berlin</h4>
 
-<%= image_tag("index.jpg", class: "img-responsive") %>
+<div class="mane_img">
+	<%= image_tag("index.jpg", class: "img-responsive") %>
+</div>
 
 <% @images = Dir.glob("app/assets/images/products/*.jpg") %>
 
