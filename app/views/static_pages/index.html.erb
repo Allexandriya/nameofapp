@@ -1,19 +1,40 @@
-<h1>Welcome to Bike Berlin</h1>
+<h1 class="hName">Anastasiia's Bikes<%= image_tag("logo.png", class: "logo") %></h1>
 <h4>Your source for used bikes in Berlin</h4>
 
 <div class="mane_img">
 	<%= image_tag("index.jpg", class: "img-responsive") %>
 </div>
-
+<!-- Main picture */ -->
 <% @images = Dir.glob("app/assets/images/products/*.jpg") %>
-
+<hr>
+<div class="row mainTopics">
+	<div class="col-xs-4 col-md-4">
+		<%= image_tag("topic1.png", class: "img-responsive", width: "30%") %>
+		<h4>Our products</h4>
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br>
+		It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	</div>
+	<div class="col-xs-4 col-md-4">
+		<%= image_tag("topic2.png", class: "img-responsive", width: "30%") %>
+		<h4>Diagnostics and inspection</h4>
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br>
+		 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	</div>
+	<div class="col-xs-4 col-md-4">
+		<%= image_tag("topic1.png", class: "img-responsive", width: "30%") %>
+		<h4>Technologies</h4>
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br>
+		 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	</div>
+</div>
+<hr>
 <h2>Most popular products</h2>
 <div class="row">
-<% @images.each do |image| %>
+	<% @images.each do |image| %>
 	<div class="col-xs-3 col-md-3">
 		<a href="#" class="thumbnail">
-   <%= image_tag "products/#{image.split('/').last}" %>
+   			<%= image_tag "products/#{image.split('/').last}" %>
 		</a>
 	</div>
- <% end %>
+ 	<% end %>
 </div>

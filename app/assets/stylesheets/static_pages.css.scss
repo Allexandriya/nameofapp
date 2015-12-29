@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a,
+a:hover,
+a:visited{
+  outline: none;
+  text-decoration: none;
+}
+
 body {
   padding-top: 51px;  
   color: #333;
@@ -9,6 +16,29 @@ body {
 
 html, body{
 	height: 100%;
+}
+
+.logo{
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1.1px;
+}
+
+.logo>img{
+  margin-top: -2px;
+}
+
+.hName{
+  text-transform: uppercase;
+}
+
+.login{
+  margin-left: 40px;
+  color: white;
+  line-height: 49px;
+
+  text-transform: uppercase;
 }
 
 .page-container{
@@ -20,9 +50,95 @@ html, body{
 }
 
 .footer-push, .footer {
-    height: 200px;
+    height: 210px;
     margin: 0;
     padding: 0;
+}
+
+.footer{
+  padding: 30px;
+  padding-bottom: 10px;
+
+  background-color: #333;
+  color: white;
+}
+
+.footer h6{
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.footer{
+  font-size: 12px;
+  text-align: center;
+}
+
+.footer .row{
+  margin-bottom: 20px;
+}
+
+.footer *{
+  color: white !important;
+}
+
+.footerQ{
+  list-style: none;
+  text-align: center;
+
+  padding: 0px;
+
+  letter-spacing: 1px;
+}
+
+.footer div.col-md-3{
+  text-align: center;
+}
+
+.followUs h6{
+    margin-bottom: 24px;
+}
+
+.subscribe input{
+  width: 100%;
+  border: none;
+
+  padding: 5px 5px;
+  margin: 5px 0px;
+
+  color: #333 !important;
+}
+
+.subscribe button{
+  background: #ccc;
+  padding: 5px 15px;
+
+  border: none;
+  margin-top: 5px;
+  color: #333 !important;
+  font-weight: bold;
+}
+
+.soc a{
+    font-style: normal;
+    font-weight: 400;
+    box-sizing: border-box;
+    
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    
+    border-radius: 0px;
+    
+    color: #ffffff;
+    background-color: #cdcdcd;
+}
+
+.contacts span{
+  text-transform: uppercase;
 }
 
 h1, h2, h3{
@@ -97,13 +213,6 @@ h1, h2, h3{
   }
 }
 
-.footer{
-	height: 200px;
-	padding: 30px;
-
-	background-color: #333;
-	color: white;
-}
 
 /* thumbnail */
 
@@ -112,3 +221,24 @@ h1, h2, h3{
 	border-radius: none;
 	padding: 0px;
 }
+
+.mainTopics{
+  margin-top: 20px;
+}
+
+.mainTopics h4{
+  text-align: center;
+}
+
+.mainTopics div{
+  text-align: justify;
+}
+
+.mainTopics div img{
+  display: block;
+  margin: auto;
+
+}
+
+/**/
+
