@@ -22,7 +22,7 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </button>
-        <%= link_to "Anastasiia's Bikes", static_pages_index_path, :class => 'logo' %>
+        <%= link_to "Anastasiia's Bikes", root_path, :class => 'logo' %>
         <%= image_tag("logo.png", class: "logo") %>
         <a href="#" class="login">Login</a>
         </div>
@@ -35,9 +35,10 @@
     <!-- sidebar -->
     <div class="col-xs-2 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
       <ul class="nav">
-        <li><%= active_link_to 'Home', static_pages_index_path %></li>
+        <li><%= active_link_to 'Home', root_path %></li>
         <li><%= active_link_to 'About', static_pages_about_path %></li>
         <li><%= active_link_to 'Products', products_path %></li>
+        <li><%= active_link_to 'Orders', orders_path %></li>
         <li><a href="#">Delivery</a></li>
         <li><%= active_link_to 'Contacts', static_pages_contact_path %></li>            
       </ul>
