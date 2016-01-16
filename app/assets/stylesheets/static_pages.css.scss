@@ -240,5 +240,27 @@ h1, h2, h3{
 
 }
 
-/**/
+/* CAROUSEL */
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
+  display: inline-block;
+}
+
+.carousel-control.left,
+.carousel-control.right{
+  background: none;
+}
+
+.popular h4{
+  text-align: center;
+}
+
+.Popular_description{
+  display: block;
+  min-height: 80px;
+  max-height: 80px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
