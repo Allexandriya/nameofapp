@@ -50,39 +50,29 @@
 	  </ol>
 
 	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner" role="listbox">
+
+
+	<div class="carousel-inner" role="listbox">
 	    <div class="item active row">
-			<% @products.each do |product| %>
-				<% if product.id < 4 %>
+			<% @products.first(3).each do |product| %>
 					<div class="classol-md-4 col-sm-4 col-xs-4 popular">
-						<%= image_tag(product.image_url, class: "img-responsive") %>
-						<h4><%= link_to product.name, product %></h4>
-						<p class="Popular_description"><%= product.description %></p>
-						<p><%= product.id %></p>
-						<p><b>$<%= product.price %></b></p>	
+						<%= render partial: "product_show", locals: {product: product} %>
 					</div>
-				<% end %>	
 			<% end %>	
 		</div>
 		<div class="item row">
-			<% @products.each do |product| %>
-				<% if product.id >= 4 %>
+			<% @products.slice(3, 6).each do |product| %>
 					<div class="classol-md-4 col-sm-4 col-xs-4 popular">
-						<%= image_tag(product.image_url, class: "img-responsive") %>
-						<h4><%= link_to product.name, product %></h4>
-						<p class="Popular_description"><%= product.description %></p>
-						<p><%= product.id %></p>
-						<p><b>$<%= product.price %></b></p>	
+						<%= render partial: "product_show", locals: {product: product} %>
 					</div>
-				<% end %>	
 			<% end %>
 		</div>
+    </div>
 
-	    <!-- Нужно поставить условие, если айди продукта до 3, тогда идет в первую линию. Если после - во вторую
+	 <!-- Нужно поставить условие, если айди продукта до 3, тогда идет в первую линию. Если после - во вторую
 		Сделать цикл и разбивать по индексам. цикл для i-того внутри цикла .each
 
 	-->
-	  </div>
 
 
   <!-- Controls -->

@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-  	@products = Product.limit(6)
+  	@products = Product.all
   end
 
 end
