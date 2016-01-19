@@ -8,8 +8,9 @@ class ProductsController < ApplicationController
         search_term = params[:q]
         @products = Product.where("LOWER(name) LIKE ? OR LOWER(price) LIKE ? OR LOWER(description) LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
         if @products.empty?
-          format.html{redirect_to root, notice: "Sorry, no products was found"}
-          @products = Product.all
+          respond_to do |format|
+            format.html{redirect_to products_url, notice: "Sorry, no matching products was found"}
+          end
         end
     else
       @products = Product.all
