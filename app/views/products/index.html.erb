@@ -1,5 +1,15 @@
-<h1>Products</h1>
+<p id="notice"><%= notice %></p>
+<h1 class="pull-left">Products</h1>
+<div class="pull-right srch_form">
+	<%= form_tag("/products", method: "get") do %>
+	<div class="input-group">
+		<%= text_field_tag :q, "", class: 'form-control' %>
+		<%= submit_tag "", class: "input-group-addon" %>
+	</div>
+	<% end %>	
+</div>
 
+<div class="clearfix"></div>
 <div class="container-fluid">
     <div class="row">
       <% @products.each do |product| %>

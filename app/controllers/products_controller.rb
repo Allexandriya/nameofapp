@@ -4,9 +4,17 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:q]
+        search_term = params[:q]
+        @products = Product.where("LOWER(name) LIKE ? OR LOWER(price) LIKE ? OR LOWER(description) LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
+        if @products.empty?
+          format.html{redirect_to root, notice: "Sorry, no products was found"}
+          @products = Product.all
+        end
+    else
+      @products = Product.all
+    end
   end
-
   # GET /products/1
   # GET /products/1.json
   def show
