@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if params[:q]
+      if Rails.env.production?
         search_term = params[:q]
         @products = Product.where("name iLIKE ? OR description iLIKE ?", "%#{search_term}%", "%#{search_term}%")
         if @products.empty?
@@ -12,6 +13,18 @@ class ProductsController < ApplicationController
             format.html{redirect_to products_url, notice: "Sorry, no matching products was found"}
           end
         end
+      end
+
+      if Rails.env.development?
+        search_term = params[:q]
+        @products = Product.where("name LIKE ? OR description LIKE ?", "%#{search_term}%", "%#{search_term}%")
+        if @products.empty?
+          respond_to do |format|
+            format.html{redirect_to products_url, notice: "Sorry, no matching products was found"}
+          end
+        end
+      end
+        
     else
       @products = Product.all
     end
