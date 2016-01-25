@@ -24,7 +24,6 @@
        </button>
         <%= link_to "Anastasiia's Bikes", root_path, :class => 'logo' %>
         <%= image_tag("logo.png", class: "logo") %>
-        <a href="#" class="login">Login</a>
         </div>
       </div>
     </div>
@@ -34,6 +33,18 @@
 
     <!-- sidebar -->
     <div class="col-xs-2 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+      <ul class="login">
+        <li>
+          <% if user_signed_in? %>
+            <p>Hello, <%= current_user.email.slice('@') %></p>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete)%><br>
+            <%= link_to('Change profile settings', edit_user_registration_path)%>
+          <% else %>
+            <%= link_to('Login', new_user_session_path, class: "blue")%> |
+            <%= link_to('Sing Up', new_user_registration_path, class: "blue")%>
+          <% end %>
+        </li>
+      </ul>
       <ul class="nav">
         <li><%= active_link_to 'Home', root_path %></li>
         <li><%= active_link_to 'About', static_pages_about_path %></li>
@@ -45,6 +56,8 @@
     </div>
     
     <!-- main area -->
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
     <div class="col-xs-12 col-sm-10">
         <%= yield %>
     </div><!-- /.col-xs-12 main -->

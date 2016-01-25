@@ -29,16 +29,39 @@ html, body{
   margin-top: -2px;
 }
 
+.logo, 
+.logo+img{
+  line-height: 49px;
+}
+
 .hName{
   text-transform: uppercase;
 }
 
 .login{
-  margin-left: 40px;
-  color: white;
-  line-height: 49px;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none; 
+  padding: 10px;
+  background-color: #FBFBFB;
+}
 
-  text-transform: uppercase;
+.login>li{
+  border: none !important;
+}
+
+.login>li>a{
+  color: rgb(121, 121, 121);
+}
+
+
+.login>li>a:hover{
+  color: black;   
+}
+
+.blue{
+  font-weight: bold;
+  color: #337AB7 !important;
 }
 
 .page-container{
