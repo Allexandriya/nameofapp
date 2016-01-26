@@ -20,4 +20,10 @@
 <hr>
 
 <%= render partial: "new_comment" %>
-<%= render partial: "comments" %>
+
+
+<% if (@product.comments.length > 1 ) %>
+  <%= render partial: "comments" %>
+<% else %>
+  <p class="alert text-info">No comments yet. Be the first to review this product</p>
+<% end %>
