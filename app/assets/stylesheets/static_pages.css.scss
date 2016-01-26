@@ -307,6 +307,12 @@ textarea#message{
   height: 92px;
 }
 
+.alert{
+    padding: 0px;
+    margin-bottom: 0px;
+    border: none;
+}
+
 .notice, 
 .alert{
     display: inline-block;
