@@ -58,7 +58,17 @@
     <!-- main area -->
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
+
     <div class="col-xs-12 col-sm-10">
+      <% if notice %>
+            <span class="notice"><%= notice %><span>
+      <% end %>
+
+      <% if alert %>
+            <span class="alert"><%= alert %><span>
+      <% end %>
+
+
         <%= yield %>
     </div><!-- /.col-xs-12 main -->
   </div><!--/.row-->
