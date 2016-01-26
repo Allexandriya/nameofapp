@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get '/users', to: "devise/sessions#create"
   end
 
-  resources :products
+  #resources :products
 
   get 'static_pages/about'
 
@@ -21,6 +21,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
+
+  #Because these user reviews are associated with a specific product, we will treat the “comments” resources as a subset of “products”.
+  resources :products do
+    resources :comments
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
