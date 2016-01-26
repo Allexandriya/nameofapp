@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 		@comment.user = current_user
 		@comment.save
 
-		redirect_to products_path(@product)
+		redirect_to @product
 	end
 
 	def destroy
