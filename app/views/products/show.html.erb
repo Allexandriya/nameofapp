@@ -9,6 +9,9 @@
 
 <br>
 <div class="row">
-  <%-# link_to 'Edit', edit_product_path(@product) %> 
+  <% if user_signed_in? %>
+	<%= link_to 'Edit', edit_product_path(@product) %> 
+  <% end %>
+  
   <%= link_to 'Back to all products', products_path %>
 </div>
