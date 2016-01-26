@@ -36,7 +36,7 @@
       <ul class="login">
         <li>
           <% if user_signed_in? %>
-            <p>Hello, <%= current_user.email.slice('@') %></p>
+            <p>Hello, <%= current_user.first_name %></p>
             <%= link_to('Logout', destroy_user_session_path, :method => :delete)%><br>
             <%= link_to('Change profile settings', edit_user_registration_path)%>
           <% else %>
@@ -56,9 +56,16 @@
     </div>
     
     <!-- main area -->
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
     <div class="col-xs-12 col-sm-10">
+      <% if notice %>
+            <span class="notice text-success"><%= notice %></span>
+      <% end %>
+
+      <% if alert %>
+            <span class="alert text-success"><%= alert %></span>
+      <% end %>
+
+
         <%= yield %>
     </div><!-- /.col-xs-12 main -->
   </div><!--/.row-->

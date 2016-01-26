@@ -306,3 +306,9 @@ h1, h2, h3{
 textarea#message{
   height: 92px;
 }
+
+.notice, 
+.alert{
+    display: inline-block;
+    margin-top: 20px;
+}
