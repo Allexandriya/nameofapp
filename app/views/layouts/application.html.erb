@@ -46,7 +46,7 @@
         </li>
       </ul>
       <ul class="nav">
-        <li><%= active_link_to 'Home', root_path %></li>
+        <li><%= active_link_to 'Home', root_path, :active => {:when => :self_only} %></li>
         <li><%= active_link_to 'About', static_pages_about_path %></li>
         <li><%= active_link_to 'Products', products_path %></li>
         <li><%= active_link_to 'Orders', orders_path %></li>

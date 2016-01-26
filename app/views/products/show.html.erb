@@ -20,4 +20,7 @@
 <hr>
 
 <%= render partial: "new_comment" %>
-<%= render partial: "comments" %>
+
+<% if @product.comments.blank? %>
+  <%= render partial: "comments" %>
+<% end %>
