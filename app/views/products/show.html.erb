@@ -12,6 +12,7 @@
 <div class="row">
   <% if user_signed_in? %>
 	<%= link_to 'Edit', edit_product_path(@product) %> 
+  <%= link_to 'Delete', product_path(@product), method: :delete%>
   <% end %>
   
   <%= link_to 'Back to all products', products_path %>
@@ -19,11 +20,9 @@
 
 <hr>
 
-<%= render partial: "new_comment" %>
-
-
 <% if (@product.comments.length > 1 ) %>
   <%= render partial: "comments" %>
 <% else %>
   <p class="alert text-info">No comments yet. Be the first to review this product</p>
 <% end %>
+<%= render partial: "new_comment" %>

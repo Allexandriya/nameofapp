@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+.pagination{
+	display: block;
+	text-align: center;
+	font-weight: bold;
+}
+
+.pagination a{
+	color: #bcbcbc;
+}
