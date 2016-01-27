@@ -1,6 +1,12 @@
 class UserMailer < ActionMailer::Base
   default from: "contacts@anastasiiasbikes.com"
 
+  def welcome(user)
+	  @appname = "Bike Shop"
+	  mail( :to => user.email,
+      		:subject => "Welcome to #{@appname}!")
+  end
+
   def contact_form(email,name, message)
   	@message = message
 
