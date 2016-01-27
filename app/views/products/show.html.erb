@@ -1,0 +1,28 @@
+<br>
+  <div class="row">
+    <%= image_tag(@product.image_url, class: "img-responsive col-md-4") %>
+    <h3><%= @product.name %></h3>
+    <p><%= @product.description %></p>
+    <strong>$<%= @product.price %> </strong>
+    <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p>
+  </div>
+
+
+<br>
+<div class="row">
+  <% if signed_in? && current_user.admin? %>
+	  <%= link_to 'Edit', edit_product_path(@product) %> 
+    <%= link_to 'Delete', product_path(@product), method: :delete%>
+  <% end %>
+  
+  <%= link_to 'Back to all products', products_path %>
+</div>
+
+<hr>
+
+<% unless (@product.comments.first.blank? ) %>
+  <%= render partial: "comments" %>
+<% else %>
+  <p class="alert text-info">No comments yet. Be the first to review this product</p>
+<% end %>
+<%= render partial: "new_comment" %>

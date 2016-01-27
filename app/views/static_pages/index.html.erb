@@ -1,0 +1,68 @@
+<h1 class="hName">Anastasiia's Bikes<%= image_tag("logo.png", class: "logo") %></h1>
+<h4>Your source for used bikes in Berlin</h4>
+
+<div class="mane_img">
+	<%= image_tag("index.jpg", class: "img-responsive") %>
+</div>
+<!-- Main picture */ -->
+<% @images = Dir.glob("app/assets/images/products/*.jpg") %>
+<hr>
+<h2>Most popular products</h2>
+<!-- <div class="row">
+	<% @images.each do |image| %>
+	<div class="col-xs-3 col-md-3">
+		<a href="#" class="thumbnail">
+   			<%= image_tag "products/#{image.split('/').last}" %>
+		</a>
+	</div>
+ 	<% end %>
+</div>
+
+-->
+<!-- Carousel -->
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+	    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+	  </ol>
+
+	  <!-- Wrapper for slides -->
+
+
+	<div class="carousel-inner" role="listbox">
+	    <div class="item active row">
+			<% @products.first(3).each do |product| %>
+					<div class="classol-md-4 col-sm-4 col-xs-4 popular">
+						<%= render partial: "products/product_show", locals: {product: product} %>
+					</div>
+			<% end %>	
+		</div>
+		<div class="item row">
+			<% @products.slice(3, 6).each do |product| %>
+					<div class="classol-md-4 col-sm-4 col-xs-4 popular">
+						<%= render partial: "products/product_show", locals: {product: product} %>
+					</div>
+			<% end %>
+		</div>
+    </div>
+
+	 <!-- Нужно поставить условие, если айди продукта до 3, тогда идет в первую линию. Если после - во вторую
+		Сделать цикл и разбивать по индексам. цикл для i-того внутри цикла .each
+
+	-->
+
+
+  <!-- Controls -->
+	  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+</div>
+
+

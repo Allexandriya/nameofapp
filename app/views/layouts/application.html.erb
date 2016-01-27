@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anastasiia's Bikes</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="page-container">
+    <!-- top navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+     <div class="container">
+      <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+        <%= link_to "Anastasiia's Bikes", root_path, :class => 'logo' %>
+        <%= image_tag("logo.png", class: "logo") %>
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+  <div class="row row-offcanvas row-offcanvas-left">
+
+    <!-- sidebar -->
+    <div class="col-xs-2 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+      <ul class="login">
+        <li>
+          <% if user_signed_in? %>
+            <p>Hello, <%= current_user.first_name %></p>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete)%><br>
+            <%= link_to('Change profile settings', edit_user_registration_path)%>
+          <% else %>
+            <%= link_to('Login', new_user_session_path, class: "blue")%> |
+            <%= link_to('Sing Up', new_user_registration_path, class: "blue")%>
+          <% end %>
+        </li>
+      </ul>
+      <ul class="nav">
+        <li><%= active_link_to 'Home', root_path, :active => {:when => :self_only} %></li>
+        <li><%= active_link_to 'About', static_pages_about_path %></li>
+        <li><%= active_link_to 'Products', products_path %></li>
+        <li><%= active_link_to 'Orders', orders_path %></li>
+        <li><a href="#">Delivery</a></li>
+        <li><%= active_link_to 'Contacts', static_pages_contact_path %></li>            
+      </ul>
+    </div>
+    
+    <!-- main area -->
+    <div class="col-xs-12 col-sm-10">
+      <% if notice %>
+            <span class="notice text-success"><%= notice %></span>
+      <% end %>
+
+      <% if alert %>
+            <span class="alert text-success"><%= alert %></span>
+      <% end %>
+
+
+        <%= yield %>
+    </div><!-- /.col-xs-12 main -->
+  </div><!--/.row-->
+</div><!--/.container-->
+  <div class="footer-push"></div>
+</div><!--/.page-container-->
+
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6 quickLinks">
+        <h6>Quick Links</h6>
+        <ul class="footerQ">
+          <li>
+            <a href="#">About Us</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
+          </li>
+          <li>
+            <a href="#">Terms Of Service</a>
+          </li>
+          <li>
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#">Site Map</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 hidden-xs subscribe">
+        <h6>Subscribe</h6>
+        <span>Sign Up for free to receive news and deals</span>
+        <form>
+            <input type="email" placeholder="example@email.com">
+            <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="col-md-3 col-sm-3 hidden-xs followUs row">
+        <h6>Follow us</h6>
+        <div class="col-md-3 col-xs-6 soc">
+            <a class="soc-twitter" href="#">T</a>
+        </div>
+        <div class="col-md-3 col-xs-6 soc">
+            <a class="soc-facebook" href="#">F</a>
+        </div>
+        <div class="col-md-3 col-xs-6 soc">
+            <a class="soc-google" href="#">G</a>
+        </div>
+        <div class="col-md-3 col-xs-6 soc">
+            <a class="soc-pinterest" href="#">P</a>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6 contacts">
+        <h6>Contacts</h6>
+        <span><b>Address: </b>1417 Kings Hwy, Brooklyn, NY 11229</span><br/>
+        <span><b>Phone: </b>917 613 6726</span><br/>
+      </div>
+    </div>
+    <span class="center-block">&copy; Anastasiia's Bikes. All rights reserver. 2015-2016</span>
+  </div>
+</div>
+
+<!-- script for sidebar -->
+<script type="text/javascript">
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<h1 class="pull-left">All Products</h1>
+<div class="pull-right srch_form">
+	<%= form_tag("/products", method: "get") do %>
+	<div class="input-group">
+		<%= label_tag :q, "Search for", class: "sr-only"%>
+		<%= text_field_tag :q, "", class: 'form-control' %>
+		<i class="glyphicon glyphicon-search"></i>
+		<%= submit_tag "", class: "input-group-addon srch" %>
+	</div>
+	<% end %>	
+</div>
+
+<div class="clearfix"></div>
+<div class="container-fluid">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-xs-6 col-md-4" style="margin-bottom: 40px;">
+            <%= render partial: "product_show", locals: {product: product} %>
+            <%= link_to 'Read more >>', product, :class => 'pull-right' %>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+
