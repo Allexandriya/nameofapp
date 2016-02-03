@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "contacts@anastasiiasbikes.com"
+  default from: "bike@anastasiiasbikes.com"
 
   def welcome(user)
 	  @appname = "Bike Shop"
