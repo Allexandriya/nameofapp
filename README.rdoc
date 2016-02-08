@@ -1,4 +1,4 @@
 == README
 
-Hello everybody! My name is Anastasiia and this is my first ruby on rail project :)
+Hello everybody! My name is Anastasiia and this is my ruby on rail project :)
 Feel free to comment all my works
