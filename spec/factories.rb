@@ -8,4 +8,9 @@ FactoryGirl.define do
 		admin false
 		password_confirmation "helloworld"
 	end
+
+	sequence(:name) { |n| "Test product # #{n}" }
+	factory :product do
+		name
+	end
 end
