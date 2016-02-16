@@ -7,6 +7,7 @@ gem 'rails', '4.1.8'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'active_link_to'

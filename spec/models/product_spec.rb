@@ -5,7 +5,7 @@ describe Product do
 
 	before do
 		@product = Product.create!(name: "race bike")
-		@user = User.create!(email: "john@gmail.com", password: "11111111")
+		@user = FactoryGirl.create(:user)
 		@product.comments.create!(rating: 1, user: @user, body: "Awful bike!")
 		@product.comments.create!(rating: 3, user: @user, body: "nice!")
 		@product.comments.create!(rating: 5, user: @user, body: "best!")
