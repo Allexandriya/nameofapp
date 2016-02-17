@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
 	
-  # POST /payments
-  # POST /payments.json
+	# POST /payments
+  	# POST /payments.json
 	def create
 		@product = Product.find(params[:product_id])
 		@user = current_user
@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
 			charge = Stripe::Charge.create(
 				:amount => @product.price * 100, #in cents
 				:currency => 'usd'
-				:source => token
+				:source => token,
 				:description => params[:stripeEmail]
 			)
 
@@ -33,8 +33,9 @@ class PaymentsController < ApplicationController
     	end
 
 		respond_to do |format|
-	        format.html { redirect_to @user, notice: 'User was successfully created.' }
-	        format.json { render :show, status: :created, location: @user }   
-	    end
+      	    format.html { redirect_to @product, notice: '' }
+        	format.json { render :show, status: :created, location: @product }
+        end
+
 	end
 end
