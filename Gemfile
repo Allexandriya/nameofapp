@@ -60,3 +60,4 @@ end
 gem 'devise'
 gem 'cancancan'
 gem 'stripe'
+gem 'jruby-openssl'
