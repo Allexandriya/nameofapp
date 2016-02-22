@@ -13,6 +13,7 @@ group :development, :test do
   gem 'spork-rails'
   gem 'guard-spork'
   gem 'wdm'
+  gem 'byebug'
 end
 
 gem 'active_link_to'
