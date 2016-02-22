@@ -13,7 +13,6 @@ group :development, :test do
   gem 'spork-rails'
   gem 'guard-spork'
   gem 'wdm'
-  gem 'byebug'
 end
 
 gem 'active_link_to'
@@ -63,3 +62,5 @@ gem 'cancancan'
 gem 'stripe'
 gem 'jruby-openssl'
 gem 'highline', '~> 1.7', '>= 1.7.8'
+gem 'byebug'
+gem 'brakeman'
