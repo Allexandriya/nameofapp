@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-	
+
 	# POST /payments
   	# POST /payments.json
 	def create
@@ -10,15 +10,15 @@ class PaymentsController < ApplicationController
 		begin
 			charge = Stripe::Charge.create(
 				:amount => @product.price * 100, #in cents
-				:currency => 'usd'
+				:currency => 'usd',
 				:source => token,
 				:description => params[:stripeEmail]
 			)
 
 			if charge.paid
 				Order.create(
-					:product_id => @product.id
-					:user_id => @user.id
+					:product_id => @product.id,
+					:user_id => @user.id,
 					:total => @product.price
 				)
 			end
@@ -30,12 +30,6 @@ class PaymentsController < ApplicationController
 		      	flash[:error] = "Sorry, your card was declined with the error: #{err[:message]}"
 	    	end
 
-    	end
-
-		respond_to do |format|
-      	    format.html { redirect_to @product, notice: '' }
-        	format.json { render :show, status: :created, location: @product }
-        end
-
+	    	redirect_to product_path(@product)
 	end
 end
