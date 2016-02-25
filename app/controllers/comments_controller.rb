@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
 			if @comment.save
 				format.html {redirect_to @product}
 				format.json {render :show, status: :created, location: @product}
+				format.js
 			else
 				format.html {redirect_to @product, alert: 'Review was not created. Please, fill all fields'}
 				format.json {render json: @comment.errors, status: :unprocessable_entity}

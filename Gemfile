@@ -60,7 +60,6 @@ end
 gem 'devise'
 gem 'cancancan'
 gem 'stripe'
-gem 'jruby-openssl'
 gem 'highline', '~> 1.7', '>= 1.7.8'
 gem 'byebug'
 gem 'brakeman'
