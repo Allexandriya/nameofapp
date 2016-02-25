@@ -29,6 +29,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angularjs-rails (1.5.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.10-x86-mingw32)
     brakeman (3.1.5)
@@ -255,6 +256,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
+  angularjs-rails
   brakeman
   byebug
   cancancan
