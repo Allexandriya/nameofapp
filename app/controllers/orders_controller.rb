@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+	before_filter :authenticate_user!
 	protect_from_forgery
 	skip_before_action :verify_authenticity_token, if: :json_request?
 	respond_to :json, :html

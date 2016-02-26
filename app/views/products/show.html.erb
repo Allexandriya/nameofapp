@@ -1,4 +1,5 @@
 <br>
+<% cache @product do%>
   <div class="row">
     <%= image_tag(@product.image_url, class: "img-responsive col-md-4 img-zoom", data_zoom_image: @product.image_url) %>
     <h3><%= @product.name %></h3>
@@ -10,6 +11,7 @@
       <%= render partial: "/shared/stripe_checkout_button", locals: {product: @product} %>
     <% end %>
   </div>
+  <% end %>
 
 
 <br>

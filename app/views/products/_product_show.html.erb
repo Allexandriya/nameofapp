@@ -1,6 +1,8 @@
+<% cache product do %>
 <%= image_tag(product.image_url, class: "img-responsive") %>
 <h4><%= link_to product.name, product %></h4>
 <p class="Popular_description"><%= product.description %></p>
 <span><b>$<%= product.price %></b></span>
 <div class="rated" data-score="<%= product.average_rating %>"></div>
 <% logger.debug "Product: #{product.name}"%>
+<%end%>
